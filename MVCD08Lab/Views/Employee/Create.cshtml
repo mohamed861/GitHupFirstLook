@@ -1,0 +1,112 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <form asp-action="Create" asp-controller="Employee" method="post">
+        <div class="form-group row">
+            @Html.LabelFor(e => e.Fname, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(e => e.Fname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(e => e.Fname, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Lname" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.Lname" class="form-control" />
+                <span asp-validation-for="@Model.Lname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(e => e.Age, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(e => e.Age, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(e => e.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Salary" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.Salary" class="form-control" />
+                <span asp-validation-for="@Model.Salary" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(e => e.Pwd, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(e => e.Pwd, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(e => e.Pwd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.ConPwd" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.ConPwd" class="form-control" />
+                <span asp-validation-for="@Model.ConPwd" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(e => e.DOB, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(e => e.DOB, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(e => e.DOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group row">
+            <label asp-for="@Model.DOH" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.DOH" class="form-control" />
+                <span asp-validation-for="@Model.DOH" class="text-danger"></span>
+            </div>
+        </div>*@
+        <div class="form-group row">
+            @Html.LabelFor(e => e.DOH, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(e => e.DOH, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(e => e.DOH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(e => e.Email, new { @class = "col-form-lable col-sm-3" })
+            <div class="col-sm-9">
+                @Html.EditorFor(e => e.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(e => e.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Phone" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.Phone" class="form-control" />
+                <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.URL" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.URL" class="form-control" />
+                <span asp-validation-for="@Model.URL" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Address" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <input asp-for="@Model.Address" class="form-control" />
+                <span asp-validation-for="@Model.Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Department.DeptName" class="col-form-lable col-sm-3"></label>
+            <div class="col-sm-9">
+                <select asp-for="DeptId" asp-items="@ViewBag.depts as SelectList" class="custom-select">
+                </select>
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <input type="submit" class="btn btn-success col-sm-3 mr-5" />
+            <a asp-action="Index" asp-controller="Employee" class="btn btn-dark col-sm-3">Back</a>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </form>

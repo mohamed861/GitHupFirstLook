@@ -1,0 +1,7 @@
+﻿@model DateTime?
+   
+       
+    @Html.TextBox("",Model.HasValue?Model.Value.ToShortDateString():DateTime.Now.ToShortDateString(),
+                        htmlAttributes:new { @class= "datepicker form-control" })
+     @*<input type="text" value="@Model.HasValue?Model.Value.ToShortDateString():DateTime.Now.ToShortDateString()" class="datepicker form-control">*@
+
